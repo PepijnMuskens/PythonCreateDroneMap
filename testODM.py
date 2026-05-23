@@ -4,19 +4,20 @@ from pyodm import Node
 import aspose.threed as a3d
 
 
+
 n = Node('localhost', 3000)
 images = []
 directory = os.fsencode('Images')
     
 for file in os.listdir(directory):
     filename = os.fsdecode(file)
-    if filename.endswith(".jpg") or filename.endswith(".jpeg"): 
+    if filename.endswith(".jpg") or filename.endswith(".jpeg") or filename.endswith(".png"): 
         print(os.path.join('Images/', filename))
         images.append(os.path.join('Images/', filename))
         continue
     else:
         continue
-task = n.create_task(images, {'dsm': True})
+task = n.create_task(images)
 task.wait_for_completion()
 os.listdir(task.download_assets("results"))[0:2]
 

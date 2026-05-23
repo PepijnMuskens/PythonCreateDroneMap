@@ -1,2 +1,3 @@
 pyodm
 aspose-3d
+opencv-python
