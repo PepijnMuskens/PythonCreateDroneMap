@@ -17,7 +17,7 @@ for file in os.listdir(directory):
         continue
     else:
         continue
-task = n.create_task(images)
+task = n.create_task(images, {'pc-ept': False, 'cog':False, 'gltf' : False})
 task.wait_for_completion()
 os.listdir(task.download_assets("results"))[0:2]
 
